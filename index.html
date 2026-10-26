@@ -18,7 +18,7 @@ padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bott
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#05060a;--sf:#0d0f18;--tx:#eef1f8;--mu:#8b93a7;--bd:#1b1f2e;--a1:var(--a1d);--a2:var(--a2d);--on:#05060a;color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#05060a;--sf:#0d0f18;--tx:#eef1f8;--mu:#8b93a7;--bd:#1b1f2e;--a1:var(--a1d);--a2:var(--a2d);--on:#05060a;color-scheme:dark}
 :root[lang="ar"]{--fs:'Cairo',system-ui,'Segoe UI',Tahoma,sans-serif}
-
+ 
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 110px);scroll-behavior:smooth}
 *,*::before,*::after{box-sizing:inherit}
 body{margin:0;background:var(--bg);color:var(--tx);font-family:var(--fs);line-height:1.7;overflow-x:hidden}
@@ -33,11 +33,11 @@ section h2::before{counter-increment:s;content:"0" counter(s) " /";display:block
 .g{background:linear-gradient(90deg,var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
 #bg{position:fixed;inset:0;z-index:0;opacity:.55;pointer-events:none}
 #gl{position:fixed;top:0;left:0;width:400px;height:400px;pointer-events:none;z-index:0;background:radial-gradient(circle,color-mix(in srgb,var(--a1) 16%,transparent),transparent 65%)}
-
+ 
 .btn{font:inherit;font-size:14px;color:var(--tx);background:transparent;border:1px solid var(--bd);border-radius:10px;padding:8px 16px;cursor:pointer;text-decoration:none;display:inline-block;transition:transform .2s,border-color .2s,box-shadow .2s}
 .btn:hover{border-color:var(--a1);box-shadow:0 0 24px -6px var(--a1)}
 .btn.p{background:linear-gradient(90deg,var(--a1),var(--a2));color:var(--on);border-color:transparent;font-weight:600}
-
+ 
 header{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:20;width:min(1100px,calc(100% - 28px));margin:12px auto 0}
 .nb{position:relative;display:flex;align-items:center;gap:10px;padding-block:10px 13px;padding-inline:18px 12px;border:1px solid var(--bd);border-radius:18px;background:color-mix(in srgb,var(--sf) 70%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);overflow:hidden;box-shadow:0 14px 40px -18px var(--a2)}
 .nb::before,.nb::after{content:"";position:absolute;inset:auto 0 0 0;height:3px}
@@ -60,7 +60,7 @@ header{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:20;
 .pal.open{display:flex}
 .sw{width:26px;height:26px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--c1),var(--c2));cursor:pointer;padding:0}
 .sw[aria-pressed="true"]{outline:2px solid var(--tx);outline-offset:2px}
-
+ 
 .hero{min-height:88vh;display:flex;align-items:center;padding-block:48px;overflow:hidden}
 .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.28;transform:translateY(calc(var(--sy,0)*-.15px));pointer-events:none}
 .o1{width:380px;height:380px;background:var(--a1);top:-60px;inset-inline-start:-80px}
@@ -82,12 +82,12 @@ header{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:20;
 .ln{display:block;opacity:0;transform:translateX(-10px);animation:li .5s forwards;animation-delay:calc(var(--i)*.16s + .5s);white-space:pre}
 @keyframes li{to{opacity:1;transform:none}}
 .k{color:var(--a2)}.s{color:var(--a1)}.cm{color:var(--mu)}
-
+ 
 .mq{overflow:hidden;border-block:1px solid var(--bd);padding:16px 0;direction:ltr;position:relative;z-index:1;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
 .mt{display:flex;gap:56px;width:max-content;animation:mq 30s linear infinite;font:500 18px var(--mono);color:var(--mu)}
 .mq:hover .mt{animation-play-state:paused}.mt span:hover{color:var(--a1)}
 @keyframes mq{to{transform:translateX(-50%)}}
-
+ 
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
 .rv{opacity:0;transform:translateY(28px);filter:blur(6px);transition:opacity .8s var(--d,0s),transform .8s var(--d,0s),filter .8s var(--d,0s)}
 .rv.in{opacity:1;transform:none;filter:none}.rv.done{transition:transform .2s ease-out,border-color .2s}
@@ -98,11 +98,16 @@ header{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:20;
 .pv i{display:block;height:8px;border-radius:4px;background:var(--bd);animation:sh 3.2s ease-in-out infinite;animation-delay:var(--w,0s)}
 .pv i:first-child{background:linear-gradient(90deg,var(--a1),var(--a2));height:12px}
 @keyframes sh{0%,100%{width:30%}50%{width:88%}}
+.shot{position:relative;height:170px;margin:14px 14px 0;border:1px solid var(--bd);border-radius:10px;overflow:hidden;background:var(--bg)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .6s}
+.c:hover .shot img{transform:scale(1.05)}
+.shot .pv{position:absolute;inset:0;margin:0;height:auto;border:0;border-radius:0;display:none}
+.shot.nf .pv{display:flex}
 .bd2{padding:18px;display:flex;flex-direction:column;gap:10px;flex:1;position:relative}
 .c h3{font-size:20px}.c p{margin:0;color:var(--mu);font-size:15px}
 .tags{display:flex;flex-wrap:wrap;gap:6px}.tg{font:400 12px var(--mono);padding:2px 10px;border:1px solid var(--bd);border-radius:99px;color:var(--mu)}
 .lnk{display:flex;gap:16px;margin-top:auto;font-size:14px}.lnk a{color:var(--a1);text-decoration:none}
-
+ 
 .ab{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:32px;align-items:start}
 @media (max-width:860px){.ab{grid-template-columns:minmax(0,1fr)}}
 .edu{flex-direction:row;align-items:center;gap:14px;padding:16px;margin-top:24px}.edu h3{font-size:17px;margin:6px 0 2px}.edu p{font-size:14px}.lg{width:56px;height:56px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--a1),var(--a2));color:var(--on);font:700 22px var(--mono);flex:none;overflow:hidden}.lg img{width:100%;height:100%;object-fit:contain}
@@ -114,7 +119,7 @@ header{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:20;
 .ct p{color:var(--mu);max-width:48ch;margin:0 auto 28px}
 .ct .btns{justify-content:center}
 footer{border-top:1px solid var(--bd);padding-block:24px;color:var(--mu);font-size:14px;position:relative;z-index:1}
-
+ 
 #cp{display:none;position:fixed;inset:0;z-index:50;background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);align-items:flex-start;justify-content:center;padding:15vh 16px 0}
 #cp.open{display:flex}
 .cb{width:100%;max-width:480px;background:var(--sf);border:1px solid var(--bd);border-radius:14px;overflow:hidden;box-shadow:0 30px 80px -20px var(--a2)}
@@ -126,7 +131,7 @@ footer{border-top:1px solid var(--bd);padding-block:24px;color:var(--mu);font-si
 </head>
 <body>
 <canvas id="bg"></canvas><div id="gl"></div>
-
+ 
 <header>
   <div class="nb">
     <a class="logo" href="#top"><img class="av" src="photo.jpg" alt="Mohamed Sherif" width="34" height="34"><span data-i18n="logo">Mohamed Sherif</span></a>
@@ -148,7 +153,7 @@ footer{border-top:1px solid var(--bd);padding-block:24px;color:var(--mu);font-si
     <button class="sw" data-p="ember" style="--c1:#fb923c;--c2:#f43f5e" aria-label="Ember"></button>
   </div>
 </header>
-
+ 
 <main id="top">
 <section class="hero"><div class="orb o1"></div><div class="orb o2"></div>
   <div class="w hg">
@@ -162,45 +167,47 @@ footer{border-top:1px solid var(--bd);padding-block:24px;color:var(--mu);font-si
     <div class="fl"><pre class="code tilt" id="code"><div class="dots"><b></b><b></b><b></b></div><span class="ln" style="--i:0"><i class="k">const</i> dev = {</span><span class="ln" style="--i:1">  name: <i class="s">"Mohamed Sherif"</i>,</span><span class="ln" style="--i:2">  role: <i class="s">"Frontend Engineer"</i>,</span><span class="ln" style="--i:3">  stack: [<i class="s">"HTML"</i>, <i class="s">"CSS"</i>, <i class="s">"JavaScript"</i>],</span><span class="ln" style="--i:4">  obsessed: [<i class="s">"performance"</i>, <i class="s">"a11y"</i>, <i class="s">"motion"</i>],</span><span class="ln" style="--i:5">  coffee: <i class="k">Infinity</i>,</span><span class="ln" style="--i:6">  available: <i class="k">true</i></span><span class="ln" style="--i:7">};</span><span class="ln cm" style="--i:8">// press ⌘K / Ctrl+K to explore</span></pre></div>
   </div>
 </section>
-
+ 
 <div class="mq"><div class="mt" id="mt"><span>React</span><span>TypeScript</span><span>Next.js</span><span>Tailwind</span><span>GSAP</span><span>Vite</span><span>Redux</span><span>Figma</span><span>Jest</span><span>Git</span></div></div>
-
+ 
 <section id="work"><div class="w">
   <h2 class="rv" data-i18n="work_h">Selected work</h2>
   <div class="grid">
-    <article class="c tilt rv" style="--d:.05s"><div class="pv"><i></i><i style="--w:.3s"></i><i style="--w:.6s"></i></div><div class="bd2"><h3 data-i18n="p1_t">Weather App Pro</h3><p data-i18n="p1_d">A weather app that shows current conditions for any city you search.</p><div class="tags"><span class="tg">JavaScript</span><span class="tg">CSS</span></div><div class="lnk"><a href="https://github.com/M0hamedXSherif/weather-app-pro" target="_blank" rel="noopener" data-i18n="code">Source code</a></div></div></article>
-    <article class="c tilt rv" style="--d:.15s"><div class="pv"><i></i><i style="--w:.5s"></i><i style="--w:.2s"></i></div><div class="bd2"><h3 data-i18n="p2_t">GitHub User Search</h3><p data-i18n="p2_d">Search for any GitHub user and explore their profile and repositories.</p><div class="tags"><span class="tg">JavaScript</span><span class="tg">REST API</span></div><div class="lnk"><a href="https://github.com/M0hamedXSherif/github-user-search" target="_blank" rel="noopener" data-i18n="code">Source code</a></div></div></article>
-    <article class="c tilt rv" style="--d:.25s"><div class="pv"><i></i><i style="--w:.1s"></i><i style="--w:.7s"></i></div><div class="bd2"><h3 data-i18n="p3_t">Magical Calculator</h3><p data-i18n="p3_d">A playful calculator with a magical touch, built with JavaScript.</p><div class="tags"><span class="tg">JavaScript</span><span class="tg">DOM</span></div><div class="lnk"><a href="https://github.com/M0hamedXSherif/Magical-Calculator" target="_blank" rel="noopener" data-i18n="code">Source code</a></div></div></article>
+    <article class="c tilt rv" style="--d:0.05s"><div class="shot"><img src="images/smart-notes.jpg" alt="Smart Notes screenshot" loading="lazy" onerror="this.parentNode.classList.add('nf');this.remove()"><div class="pv"><i></i><i style="--w:.3s"></i><i style="--w:.6s"></i></div></div><div class="bd2"><h3 data-i18n="p4_t">Smart Notes</h3><p data-i18n="p4_d">A notes app that suggests tags as you type, with search, pinning and Arabic support.</p><div class="tags"><span class="tg">JavaScript</span><span class="tg">LocalStorage</span></div><div class="lnk"><a href="https://m0hamedxsherif.github.io/note-app/" target="_blank" rel="noopener" data-i18n="live">Live demo</a><a href="https://github.com/M0hamedXSherif/note-app" target="_blank" rel="noopener" data-i18n="code">Source code</a></div></div></article>
+    <article class="c tilt rv" style="--d:0.15s"><div class="shot"><img src="images/smart-todo.jpg" alt="Smart Todo screenshot" loading="lazy" onerror="this.parentNode.classList.add('nf');this.remove()"><div class="pv"><i></i><i style="--w:.3s"></i><i style="--w:.6s"></i></div></div><div class="bd2"><h3 data-i18n="p5_t">Smart Todo</h3><p data-i18n="p5_d">A to-do list that understands “call client tomorrow 5pm !high #work” and shifts its colors as you make progress.</p><div class="tags"><span class="tg">JavaScript</span><span class="tg">Smart parsing</span></div><div class="lnk"><a href="https://m0hamedxsherif.github.io/Smart-todo-app/" target="_blank" rel="noopener" data-i18n="live">Live demo</a><a href="https://github.com/M0hamedXSherif/Smart-todo-app" target="_blank" rel="noopener" data-i18n="code">Source code</a></div></div></article>
+    <article class="c tilt rv" style="--d:0.25s"><div class="shot"><img src="images/weather-app.jpg" alt="Weather App Pro screenshot" loading="lazy" onerror="this.parentNode.classList.add('nf');this.remove()"><div class="pv"><i></i><i style="--w:.3s"></i><i style="--w:.6s"></i></div></div><div class="bd2"><h3 data-i18n="p1_t">Weather App Pro</h3><p data-i18n="p1_d">A weather app that shows current conditions for any city you search.</p><div class="tags"><span class="tg">JavaScript</span><span class="tg">CSS</span></div><div class="lnk"><a href="https://github.com/M0hamedXSherif/weather-app-pro" target="_blank" rel="noopener" data-i18n="code">Source code</a></div></div></article>
+    <article class="c tilt rv" style="--d:0.05s"><div class="shot"><img src="images/github-user-search.jpg" alt="GitHub User Search screenshot" loading="lazy" onerror="this.parentNode.classList.add('nf');this.remove()"><div class="pv"><i></i><i style="--w:.3s"></i><i style="--w:.6s"></i></div></div><div class="bd2"><h3 data-i18n="p2_t">GitHub User Search</h3><p data-i18n="p2_d">Search for any GitHub user and explore their profile and repositories.</p><div class="tags"><span class="tg">JavaScript</span><span class="tg">REST API</span></div><div class="lnk"><a href="https://github.com/M0hamedXSherif/github-user-search" target="_blank" rel="noopener" data-i18n="code">Source code</a></div></div></article>
+    <article class="c tilt rv" style="--d:0.15s"><div class="shot"><img src="images/magical-calculator.jpg" alt="Magical Calculator screenshot" loading="lazy" onerror="this.parentNode.classList.add('nf');this.remove()"><div class="pv"><i></i><i style="--w:.3s"></i><i style="--w:.6s"></i></div></div><div class="bd2"><h3 data-i18n="p3_t">Magical Calculator</h3><p data-i18n="p3_d">A playful calculator with a magical touch, built with JavaScript.</p><div class="tags"><span class="tg">JavaScript</span><span class="tg">DOM</span></div><div class="lnk"><a href="https://github.com/M0hamedXSherif/Magical-Calculator" target="_blank" rel="noopener" data-i18n="code">Source code</a></div></div></article>
   </div>
 </div></section>
-
+ 
 <section id="about"><div class="w">
   <h2 class="rv" data-i18n="about_h">About me</h2>
   <div class="ab">
     <div class="rv"><p data-i18n="about_p">I’m a student from Cairo who loves building for the web. I learn something new every day and turn it into real projects on GitHub.</p>
       <div class="tags"><span class="tg">HTML</span><span class="tg">CSS</span><span class="tg">JavaScript</span><span class="tg">Git</span><span class="tg">GitHub</span></div><div class="c edu tilt"><div class="lg" id="lg">🎓</div><div><span class="tg" data-i18n="edu_h">Education</span><h3 data-i18n="edu_n">Your institute name</h3><p data-i18n="edu_s">Currently studying</p></div></div></div>
-    <div class="st rv" style="--d:.15s"><div><b><span data-n="16">0</span></b><span data-i18n="st1">GitHub repositories</span></div><div><b><span data-n="6">0</span></b><span data-i18n="st2">Popular projects</span></div><div><b data-n="3">0</b><span data-i18n="st3">Featured below</span></div></div>
+    <div class="st rv" style="--d:.15s"><div><b><span data-n="16">0</span></b><span data-i18n="st1">GitHub repositories</span></div><div><b><span data-n="6">0</span></b><span data-i18n="st2">Popular projects</span></div><div><b data-n="5">0</b><span data-i18n="st3">Featured below</span></div></div>
   </div>
 </div></section>
-
+ 
 <section id="contact" class="ct"><div class="w">
   <h2 class="rv g" data-i18n="contact_h">Got an idea? Let’s build it.</h2>
   <p class="rv" data-i18n="contact_p">Have a project or an opportunity in mind? Send me a message.</p>
   <div class="btns rv"><a class="btn p mg" href="mailto:you@example.com" data-i18n="email_btn">Send an email</a><a class="btn mg" href="https://www.linkedin.com/in/m0hamedxsherif/" target="_blank" rel="noopener">LinkedIn</a><a class="btn mg" href="https://github.com/M0hamedXSherif" target="_blank" rel="noopener">GitHub</a></div>
 </div></section>
 </main>
-
+ 
 <footer><div class="w"><span id="yr"></span> <span data-i18n="foot">Mohamed Sherif. All rights reserved.</span></div></footer>
-
+ 
 <div id="cp"><div class="cb"><input id="ci" autocomplete="off"><ul id="cl"></ul></div></div>
-
+ 
 <script>
 var T={
 en:{logo:"Mohamed Sherif",nav_work:"Work",nav_about:"About",nav_contact:"Contact",hero_hi:"Available for work",h1a:"I craft interfaces",h1b:"that feel alive.",
 roles:["Frontend Engineer","UI Craftsman","Performance Nerd"],hero_sub:"Frontend developer in Cairo, turning ideas into fast, fluid, pixel-perfect experiences.",
 cta_work:"View my work",cta_contact:"Let’s talk",work_h:"Selected work",
 p1_t:"Weather App Pro",p1_d:"A weather app that shows current conditions for any city you search.",p2_t:"GitHub User Search",p2_d:"Search for any GitHub user and explore their profile and repositories.",p3_t:"Magical Calculator",p3_d:"A playful calculator with a magical touch, built with JavaScript.",
-live:"Live demo",code:"Source code",st1:"GitHub repositories",st2:"Popular projects",st3:"Featured below",
+p4_t:"Smart Notes",p4_d:"A notes app that suggests tags as you type, with search, pinning and Arabic support.",p5_t:"Smart Todo",p5_d:"A to-do list that understands “call client tomorrow 5pm !high #work” and shifts its colors as you make progress.",live:"Live demo",code:"Source code",st1:"GitHub repositories",st2:"Popular projects",st3:"Featured below",
 about_h:"About me",edu_h:"Education",edu_n:"Your institute name",edu_s:"Currently studying",about_p:"I’m a student from Cairo who loves building for the web. I learn something new every day and turn it into real projects on GitHub.",
 contact_h:"Got an idea? Let’s build it.",contact_p:"Have a project or an opportunity in mind? Send me a message.",email_btn:"Send an email",foot:"Mohamed Sherif. All rights reserved.",
 langBtn:"العربية",title:"Mohamed Sherif | Frontend Developer",cp_ph:"Type a command…",c_work:"Go to work",c_about:"Go to about",c_contact:"Go to contact",c_theme:"Toggle light/dark",c_lang:"Switch language",c_pal:"Next color palette"},
@@ -208,7 +215,7 @@ ar:{logo:"محمد شريف",nav_work:"أعمالي",nav_about:"عنّي",nav_co
 roles:["مهندس واجهات أمامية","صانع تجارب مستخدم","عاشق الأداء"],hero_sub:"مطوّر Frontend في القاهرة يحوّل الأفكار إلى تجارب سريعة وسلسة ومصقولة حتى آخر بكسل.",
 cta_work:"شاهد أعمالي",cta_contact:"لنتحدث",work_h:"أعمال مختارة",
 p1_t:"Weather App Pro",p1_d:"تطبيق طقس يعرض الحالة الجوية الحالية لأي مدينة تبحث عنها.",p2_t:"GitHub User Search",p2_d:"ابحث عن أي مستخدم على GitHub واستكشف ملفه ومشاريعه.",p3_t:"Magical Calculator",p3_d:"آلة حاسبة ممتعة بلمسة سحرية، مبنية بـ JavaScript.",
-live:"عرض مباشر",code:"الكود المصدري",st1:"مستودع على GitHub",st2:"مشاريع بارزة",st3:"معروضة أدناه",
+p4_t:"Smart Notes",p4_d:"تطبيق ملاحظات يقترح التاجات أثناء الكتابة، مع بحث وتثبيت ودعم للعربية.",p5_t:"Smart Todo",p5_d:"قائمة مهام تفهم جملة مثل «Call client tomorrow 5pm !high #work» وتتغير ألوانها كلما تقدّمت.",live:"عرض مباشر",code:"الكود المصدري",st1:"مستودع على GitHub",st2:"مشاريع بارزة",st3:"معروضة أدناه",
 about_h:"عنّي",edu_h:"التعليم",edu_n:"اسم المعهد",edu_s:"أدرس حالياً",about_p:"أنا طالب من القاهرة أحب البناء للويب. أتعلّم كل يوم وأحوّل ما أتعلمه إلى مشاريع حقيقية على GitHub.",
 contact_h:"لديك فكرة؟ لنبنيها معاً.",contact_p:"لديك مشروع أو فرصة؟ أرسل لي رسالة.",email_btn:"أرسل بريداً",foot:"محمد شريف. جميع الحقوق محفوظة.",
 langBtn:"English",title:"محمد شريف | مطوّر واجهات أمامية",cp_ph:"اكتب أمراً…",c_work:"الذهاب إلى الأعمال",c_about:"الذهاب إلى عنّي",c_contact:"الذهاب إلى التواصل",c_theme:"تبديل الوضع الليلي/النهاري",c_lang:"تغيير اللغة",c_pal:"لوحة الألوان التالية"}
@@ -245,12 +252,12 @@ bm.onclick=function(e){e.stopPropagation();setMenu(!dd.classList.contains("open"
 dd.onclick=function(e){if(e.target.closest("a"))setMenu(false)};
 document.addEventListener("click",function(e){if(!pal.contains(e.target))setPalOpen(false);if(!dd.contains(e.target))setMenu(false)});
 addEventListener("keydown",function(e){if(e.key==="Escape"){setMenu(false);setPalOpen(false)}});
-
+ 
 function type(){var w=T[S.lang].roles[ti%3];ci+=del?-1:1;$("#ty").textContent=w.slice(0,ci);var d=del?35:75;
   if(!del&&ci>=w.length){del=true;d=1400}else if(del&&ci<=0){del=false;ti++;d=300}tt=setTimeout(type,d)}
-
+ 
 var mt=$("#mt");mt.innerHTML+=mt.innerHTML;
-
+ 
 var cv=$("#bg"),cx=cv.getContext("2d"),P=[],mx=-999,my=-999,W,H;
 function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;var n=Math.min(70,Math.floor(W*H/22000));P=[];for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35})}
 function dr(){cx.clearRect(0,0,W,H);
@@ -261,10 +268,10 @@ function dr(){cx.clearRect(0,0,W,H);
   requestAnimationFrame(dr)}
 var rm=matchMedia("(prefers-reduced-motion: reduce)").matches;
 rs();addEventListener("resize",rs);if(!rm)dr();
-
+ 
 var gl=$("#gl");
 addEventListener("pointermove",function(e){mx=e.clientX;my=e.clientY;gl.style.transform="translate("+(mx-200)+"px,"+(my-200)+"px)"});
-
+ 
 if(matchMedia("(pointer:fine)").matches){
   $$(".tilt").forEach(function(el){
     el.addEventListener("pointermove",function(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
@@ -274,14 +281,14 @@ if(matchMedia("(pointer:fine)").matches){
   $$(".mg").forEach(function(b){
     b.addEventListener("pointermove",function(e){var r=b.getBoundingClientRect();b.style.transform="translate("+((e.clientX-r.left-r.width/2)*.2)+"px,"+((e.clientY-r.top-r.height/2)*.3)+"px)"});
     b.addEventListener("pointerleave",function(){b.style.transform=""})})}
-
+ 
 function cnt(el){var n=+el.dataset.n,s=performance.now();(function f(now){var p=Math.min((now-s)/1400,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(s)}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target;t.classList.add("in");setTimeout(function(){t.classList.add("done")},1200);if(t.dataset.n)cnt(t);io.unobserve(t)}})},{threshold:.15});
 $$(".rv,[data-n]").forEach(function(el){io.observe(el)});
-
+ 
 var tk=false;
 addEventListener("scroll",function(){if(!tk){tk=true;requestAnimationFrame(function(){var y=scrollY,m=document.body.scrollHeight-innerHeight;R.style.setProperty("--sy",y);R.style.setProperty("--p",m>0?y/m:0);tk=false})}},{passive:true});
-
+ 
 var cp=$("#cp"),cin=$("#ci"),cl=$("#cl"),sel=0,items=[];
 function go(h){$(h).scrollIntoView({behavior:"smooth"})}
 function cmds(){var d=T[S.lang];return[{l:d.c_work,f:function(){go("#work")}},{l:d.c_about,f:function(){go("#about")}},{l:d.c_contact,f:function(){go("#contact")}},{l:d.c_theme,f:tgTheme},{l:d.c_lang,f:tgLang},{l:d.c_pal,f:nextPal}]}
@@ -294,7 +301,7 @@ cin.oninput=function(){sel=0;rc()};cp.onclick=function(e){if(e.target===cp)close
 addEventListener("keydown",function(e){
   if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==="k"){e.preventDefault();openC()}
   else if(cp.classList.contains("open")){if(e.key==="Escape")closeC();else if(e.key==="ArrowDown"){e.preventDefault();sel=Math.min(sel+1,items.length-1);rc()}else if(e.key==="ArrowUp"){e.preventDefault();sel=Math.max(sel-1,0);rc()}else if(e.key==="Enter")run(sel)}});
-
+ 
 apply();
 </script>
 </body>
